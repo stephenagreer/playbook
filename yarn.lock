@@ -11639,6 +11639,7 @@ fsevents@^1.2.7:
     webpack-cli: ^3.3.12
     webpack-dev-server: ^3.11.2
     webpacker-react: ^0.3.2
+    zxcvbn: ^4.4.2
   languageName: unknown
   linkType: soft
 
@@ -16215,5 +16216,12 @@ typescript@4.3.5:
     compress-commons: ^4.1.0
     readable-stream: ^3.6.0
   checksum: a2338731e721d05f37989d2284d7850a3923072c5836cfc71bdedb168afa0ecd020b45b4ca09b48ae8bc489a20e5ca46cd9e0928235a8a6fda181d5ed2876919
+  languageName: node
+  linkType: hard
+
+"zxcvbn@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "zxcvbn@npm:4.4.2"
+  checksum: 007bc474780b85e065faa60dff5ff934665dd5efbedf317bf2c42b63d527fcba641879cde1f3c040ceb147a59ba489aa267c64206857fe923032cab5b54e6117
   languageName: node
   linkType: hard
