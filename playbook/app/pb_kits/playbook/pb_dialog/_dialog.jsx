@@ -105,21 +105,6 @@ const Dialog = (props: DialogProps) => {
     }, { once: true })
   }
 
-  // const sweetAlertStyle = {
-  //   default: {
-  //     size: "md",
-  //   },
-  //   dismiss: {
-  //     size: "sm",
-  //   },
-  //   compact: {
-  //     size: "sm",
-  //   },
-  //   stacked: {
-  //     size: "sm",
-  //   },
-  // }
-
   const sweetAlertStatus = {
     default: {
       icon: "exclamation-circle",
@@ -166,12 +151,14 @@ const Dialog = (props: DialogProps) => {
         <If condition={cancelButton && confirmButton}>
           <Dialog.Footer>
             <Button loading={loading}
-                onClick={onConfirm}>
+                onClick={onConfirm}
+            >
               {confirmButton}
             </Button>
             <Button id='cancel-button'
                 onClick={onCancel}
-                variant='link'>
+                variant='link'
+            >
               {cancelButton}
             </Button>
           </Dialog.Footer>
@@ -203,7 +190,8 @@ const Dialog = (props: DialogProps) => {
         >
           <Dialog.Body>
               <Flex align='center'
-                  orientation='column'>
+                  orientation='column'
+              >
                 <IconCircle
                     icon={sweetAlertStatus[status].icon}
                     marginY='xs'
@@ -211,22 +199,26 @@ const Dialog = (props: DialogProps) => {
                     variant={sweetAlertStatus[status].variant}
                 />
                 <Title marginY='sm'
-                    size={3}>
+                    size={3}
+                >
                   {title}
                 </Title>
                 <Body marginY='xs'
-                    text={text} />
+                    text={text}
+                />
               </Flex>
             </Dialog.Body>
             <If condition={cancelButton && confirmButton}>
               <Dialog.Footer>
                 <Button loading={loading}
-                    onClick={onConfirm}>
+                    onClick={onConfirm}
+                >
                   {confirmButton}
                 </Button>
                 <Button id='cancel-button'
                     onClick={onCancel}
-                    variant='link'>
+                    variant='link'
+                >
                   {cancelButton}
                 </Button>
               </Dialog.Footer>
