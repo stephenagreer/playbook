@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-handler-names */
 /* @flow */
 
 import React, { useState } from "react"
@@ -21,81 +22,71 @@ const DialogAlert = () => {
     {
       sweetAlert: "default",
       status: "info",
-      text: "Body on small dialog",
-      title: "Header on small dialog",
+      text: "Text explainig why there is an alert",
+      title: "Are you Sure?",
       toggle: toggleInfoAlert,
       visible: infoAlertOpened,
+      buttonOneText:"No, Cancel",
+      buttonTwoText: "Yes, Action"
     },
     {
       sweetAlert: "default",
       status: "caution",
-      text: "Body on medium dialog",
-      title: "Header on medium dialog",
+      text: "This is the action you will be taking",
+      title: "Are you Sure?",
       toggle: toggleCautionAlert,
       visible: cautionAlertOpened,
+      buttonOneText:"No, Cancel",
+      buttonTwoText: "Yes, Action"
     },
     {
       sweetAlert: "default",
       status: "delete",
-      text: "Body on large dialog",
-      title: "Header on large dialog",
+      text: "You are about to delete ...",
+      title: "Delete",
       toggle: toggleDeleteAlert,
       visible: deleteAlertOpened,
+      buttonOneText:"No, Cancel",
+      buttonTwoText: "Yes, Delete"
     },
     {
       sweetAlert: "default",
       status: "error",
-      text: "Body on large dialog",
-      title: "Header on large dialog",
+      text: "Text explaining the error",
+      title: "Error Message",
       toggle: toggleErrorAlert,
       visible: errorAlertOpened,
+      buttonOneText:"No, Cancel",
+      buttonTwoText: "Ok, Thanks"
     },
     {
       sweetAlert: "default",
       status: "success",
-      text: "Body on large dialog",
-      title: "Header on large dialog",
+      text: "Text explaining what is successful",
+      title: "Success!",
       toggle: toggleSuccessAlert,
       visible: successAlertOpened,
+      buttonOneText:"No, Cancel",
+      buttonTwoText: "Ok, Thanks"
     },
   ]
 
   return (
     <div>
-      <Button onClick={open}>{"Open a Default Alert"}</Button>
-      <Flex>
-        <Button
-            borderRadius="xl"
-            id='sm'
-            marginRight='xl'
-            onClick={toggleCautionAlert}
-        >
+      <Flex rowGap="md">
+        <Button onClick={toggleInfoAlert}>
             {"Info Status"}
         </Button>
-        <Button
-            marginRight='xl'
-            onClick={toggleCautionAlert}
-        >
+        <Button onClick={toggleCautionAlert}>
             {"Caution Status"}
         </Button>
-        <Button
-            marginRight='xl'
-            onClick={toggleSuccessAlert}
-        >
+        <Button onClick={toggleSuccessAlert}>
             {"Success Status"}
         </Button>
-        <Button
-            marginRight='xl'
-            onClick={toggleErrorAlert}
-            size="lg"
-        >
+        <Button onClick={toggleErrorAlert}>
             {"Error Status"}
         </Button>
-        <Button
-            marginRight='xl'
-            onClick={toggleDeleteAlert}
-            size={3}
-        >
+        <Button onClick={toggleDeleteAlert}>
           {"Delete Status"}
         </Button>
       </Flex>
@@ -103,15 +94,27 @@ const DialogAlert = () => {
         {dialogs.map((dialog) => (
           <Dialog
               key={dialog.status}
-              // eslint-disable-next-line react/jsx-handler-names
               onClose={dialog.toggle}
               opened={dialog.visible}
               status={dialog.status}
               sweetAlert={dialog.sweetAlert}
-              text='Hello'
-              title='Testing Title'
-              variant="secondary"
-          />
+              text={dialog.text}
+              title={dialog.title}
+          >
+          <Dialog.Footer>
+            <Button
+                onClick={dialog.toggle}
+                variant="link"
+            >
+            {dialog.buttonOneText}
+            </Button>
+            <Button
+                onClick={dialog.toggle}
+            >
+            {dialog.buttonTwoText}
+            </Button>
+          </Dialog.Footer>
+          </Dialog>
         ))}
       </Flex>
     </div>
