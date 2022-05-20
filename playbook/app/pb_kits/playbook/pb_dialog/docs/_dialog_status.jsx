@@ -11,7 +11,7 @@ const useDialog = (visible = false) => {
 
 }
 
-const DialogAlert = () => {
+const DialogStatus = () => {
   const [infoAlertOpened, toggleInfoAlert] = useDialog()
   const [cautionAlertOpened, toggleCautionAlert] = useDialog()
   const [successAlertOpened, toggleSuccessAlert] = useDialog()
@@ -20,9 +20,8 @@ const DialogAlert = () => {
 
   const dialogs = [
     {
-      sweetAlert: "default",
       status: "info",
-      text: "Text explainig why there is an alert",
+      text: "Text explaining why there is an alert",
       title: "Are you Sure?",
       toggle: toggleInfoAlert,
       visible: infoAlertOpened,
@@ -30,7 +29,6 @@ const DialogAlert = () => {
       buttonTwoText: "Yes, Action"
     },
     {
-      sweetAlert: "default",
       status: "caution",
       text: "This is the action you will be taking",
       title: "Are you Sure?",
@@ -40,7 +38,6 @@ const DialogAlert = () => {
       buttonTwoText: "Yes, Action"
     },
     {
-      sweetAlert: "default",
       status: "delete",
       text: "You are about to delete ...",
       title: "Delete",
@@ -50,7 +47,6 @@ const DialogAlert = () => {
       buttonTwoText: "Yes, Delete"
     },
     {
-      sweetAlert: "default",
       status: "error",
       text: "Text explaining the error",
       title: "Error Message",
@@ -60,7 +56,6 @@ const DialogAlert = () => {
       buttonTwoText: "Ok, Thanks"
     },
     {
-      sweetAlert: "default",
       status: "success",
       text: "Text explaining what is successful",
       title: "Success!",
@@ -73,9 +68,9 @@ const DialogAlert = () => {
 
   return (
     <div>
-      <Flex rowGap="md">
+      <Flex justify="between">
         <Button onClick={toggleInfoAlert}>
-            {"Info Status"}
+            {"Information Status"}
         </Button>
         <Button onClick={toggleCautionAlert}>
             {"Caution Status"}
@@ -97,14 +92,13 @@ const DialogAlert = () => {
               onClose={dialog.toggle}
               opened={dialog.visible}
               status={dialog.status}
-              sweetAlert={dialog.sweetAlert}
               text={dialog.text}
               title={dialog.title}
           >
           <Dialog.Footer>
             <Button
                 onClick={dialog.toggle}
-                variant="link"
+                variant="secondary"
             >
             {dialog.buttonOneText}
             </Button>
@@ -121,4 +115,4 @@ const DialogAlert = () => {
   )
 }
 
-export default DialogAlert
+export default DialogStatus
