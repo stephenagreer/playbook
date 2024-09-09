@@ -1,6 +1,7 @@
 {
   "name": "playbook-project",
   "private": true,
+  "version": "utf-8-fix",
   "scripts": {
     "start-dev": "yarn nf start",
     "prepare": "husky install",
